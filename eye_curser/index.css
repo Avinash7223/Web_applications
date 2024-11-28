@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: black;
+  cursor: none;
+}
+
+.box {
+  display: flex;
+}
+
+.box .eye {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  margin: 0 20px;
+  border-radius: 50%;
+  box-shadow: 0 5px 45px rgba(218, 200, 200, 0.2),
+              inset 0 0 15px #f2761e,
+              inset 0 0 25px #f2761e;
+  z-index: 2; /* Ensure eye stays on top */
+}
+
+.box .eye::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 30px; /* Change left to 50% to center the pupil */
+  transform: translate(-50%, -50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #000;
+  border: 10px solid #2196f3;
+  box-sizing: border-box;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cursor {
+  z-index: 999;
+  position: fixed;
+  background: #2696E8;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 20px #2696E8,
+              0 0 60px #2696E8,
+              0 0 100px #2696E8;
+  animation: colors 5s infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes colors {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
